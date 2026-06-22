@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+
+# Environment variables
+.env
+.env.local
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data and model artifacts
+datasets/
+train_data*.csv
+train_preprocessed*.csv
+*.h5
+*.pth
+*.pt
+*.pkl
+models/*.h5
+models/*.pkl
+
+# Node
+node_modules/

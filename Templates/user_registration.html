@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Ubuntu:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+</head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+
+        .carousel-item img {
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            top: 50%;
+            transform: translateY(-50%);
+            background: none !important;
+        }
+
+        /* Glassmorphism card */
+        .register-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .register-card h3 {
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            color: #000 !important;
+        }
+
+        .form-control::placeholder {
+            color: #444 !important;
+        }
+
+        .btn-register {
+            background: linear-gradient(135deg, #28a745, #218838);
+            border: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #fff !important;
+        }
+
+        .btn-register:hover {
+            background: linear-gradient(135deg, #218838, #1e7e34);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            color: #fff !important;
+        }
+    </style>
+
+<body>
+
+ <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+   <!-- Main Title Navbar -->
+<div class="container-fluid bg-dark sticky-top">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+        <!-- Title centered -->
+        <h1 class="text-white m-0 text-center" style="font-size:1.8rem; flex:1;">
+            CUSTOMER BEHAVIOUR ANALYSIS USING DATA MINING TECHNIQUES WITH AI-DRIVEN RECOMMENDATIONS
+        </h1>
+
+        
+    </div>
+</div>
+
+
+    <!-- Background Image with Centered Form -->
+    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="{% static 'img/admin-1.png' %}" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="register-card">
+                        <h3 class="text-center">📝 User Registration</h3>
+
+                        <!-- Messages -->
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div
+                            class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+
+                        <!-- Registration Form -->
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <div class="form-group mb-3">
+                                <label class="fw-bold" style="color: black;">Username</label>
+
+                                <input type="text" name="username" class="form-control" placeholder="Enter username"
+                                    required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="fw-bold" style="color: black;">Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="Enter email" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="fw-bold" style="color: black;">Password</label>
+                                <input type="password" name="password" class="form-control" placeholder="Enter password"
+                                    required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="fw-bold" style="color: black;">Confirm Password</label>
+                                <input type="password" name="confirm_password" class="form-control"
+                                    placeholder="Confirm password" required>
+                            </div>
+                            <button type="submit" class="btn btn-register w-100 py-2">Register</button>
+                            <p class="mt-3 text-center">
+                                <span style="color: black;">Already Have An Account?</span> <a href="/user_login">Login</a>
+
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

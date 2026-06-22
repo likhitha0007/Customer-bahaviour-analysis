@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin Home</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Full width navbar */
+        .navbar-custom {
+            background: #000033; /* dark blue */
+            padding: 25px 40px;   /* increased height */
+            width: 100%;
+        }
+        .navbar-custom h1 {
+            font-size: 1.6rem;   /* slightly larger title */
+            font-weight: bold;
+            color: white;
+            margin: 0;
+        }
+        .navbar-custom .nav-link {
+            color: white !important;
+            margin-left: 25px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Center content over background image */
+        .carousel-caption {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            bottom: auto;
+            z-index: 2;
+        }
+
+        /* Dark overlay */
+        .carousel-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        /* Wider cards */
+        .card {
+            border-radius: 15px;
+            transition: 0.3s;
+            padding: 30px 25px;
+            min-height: 220px;
+            width: 420px;   /* increased breadth */
+            margin: 0 auto;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+        .card h5 {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .card p {
+            font-size: 0.95rem;
+        }
+
+        /* Adjust Welcome Admin size */
+        .welcome-title {
+            font-size: 2.5rem; /* reduced size */
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <h1 class="m-0">CUSTOMER BEHAVIOUR ANALYSIS USING DATA MINING TECHNIQUES WITH AI-DRIVEN RECOMMENDATIONS</h1>
+            <div class="d-flex">
+                <a href="{% url 'index' %}" class="nav-link"><i class="fa fa-home"></i> Home</a>
+                <a href="{% url 'admin_logout' %}" class="nav-link"><i class="fa fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Image + Centered Content -->
+    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active position-relative">
+                <img class="w-100 vh-100" src="{% static 'img/admin-3.png' %}" alt="Background">
+                
+                <div class="carousel-caption text-center">
+                    <h1 class="welcome-title text-white mb-4">Welcome Admin</h1>
+                    <div class="row justify-content-center g-4">
+                        <!-- Upload Dataset -->
+                        <div class="col-md-6 d-flex">
+                            <div class="card flex-fill text-center">
+                                <h5>Upload Dataset</h5>
+                                <p style="color: black;">Upload a dataset file of Customer behaviour Analysis.</p>
+                                <a href="{% url 'upload_dataset' %}" class="btn btn-primary">Upload</a>
+                            </div>
+                        </div>
+                        <!-- Preprocess Dataset -->
+                        <div class="col-md-6 d-flex">
+                            <div class="card flex-fill text-center">
+                                <h5>Preprocess Dataset</h5>
+                                <p style="color: black;">Clean and preprocess the uploaded dataset for analysis.</p>
+                                <a href="{% url 'preprocess' %}" class="btn btn-success">Preprocess</a>
+                            </div>
+                        </div>
+                        <!-- Build Model -->
+                        <div class="col-md-6 d-flex">
+                            <div class="card flex-fill text-center">
+                                <h5>Build Model</h5>
+                                <p style="color: black;">Build a model for Customer behaviour Analysis.</p>
+                                <a href="{% url 'build_model' %}" class="btn btn-warning">Build Model</a>
+                            </div>
+                        </div>
+
+                        <!-- Build Model -->
+                        <div class="col-md-6 d-flex">
+                            <div class="card flex-fill text-center">
+                                <h5>Build Category Model</h5>
+                                <p style="color: black;">Build a model for AI-Driven Recommendations.</p>
+                                <a href="{% url 'build_category_model' %}" class="btn btn-warning">Build Category Model</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

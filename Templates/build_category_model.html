@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Build Category Model</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Ubuntu:wght@500;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <style>
+        body {
+            background: url("{% static 'img/preprocess.png' %}") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+        }
+        .card h2 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000033;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 14px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="container-fluid bg-dark sticky-top">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <h1 class="text-white m-0 text-center" style="font-size:1.5rem; flex:1;">
+                CUSTOMER BEHAVIOUR ANALYSIS USING DATA MINING TECHNIQUES WITH AI-DRIVEN RECOMMENDATIONS
+            </h1>
+            <div class="d-flex gap-3">
+                <a href="{% url 'admin_home' %}" class="nav-link text-white"><i class="fa fa-home"></i> Home</a>
+                <a href="{% url 'admin_logout' %}" class="nav-link text-white"><i class="fa fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay & Card -->
+    <div class="overlay">
+        <div class="card">
+            <h2>Build Category Model</h2>
+
+            
+
+            <!-- Accuracy Results -->
+            {% if train_acc and test_acc %}
+                <div class="mt-4">
+                    <p><strong> 📊 Model Accuracy:</strong> {{ train_acc }}%</p>
+                   
+                </div>
+            {% endif %}
+
+            <!-- Classification Report -->
+            {% if report %}
+                <div class="mt-4">
+                    <h4>📑 Classification Report</h4>
+                    <pre>{{ report }}</pre>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
